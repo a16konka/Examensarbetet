@@ -8,15 +8,15 @@
       <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" type="text/css" media="all" />
       <?php wp_head();?>
     </head>
-  <body id="page1">
+  <body>
     <div class="header-container">
       <header class="wrapper clearfix">
         <h1 class="title">HYPERPHOTO</h1>      
         <nav>
           <ul>
-            <li><a href="#">Start</a></li>
-            <li><a href="#">Tjänster</a></li>
-            <li><a href="#">Om oss</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">About</a></li>
           </ul>
         </nav>
       </header>
