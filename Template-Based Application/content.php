@@ -6,6 +6,8 @@
 	Vår utrustning är bäst i branschen med <br>
 	den högsta kvalitet möjligt.</p>
 		</div> 
+		
+		<a href="<?php echo home_url(); ?>/?page_id=17">Search Page</a>
 	</section>
 	
 	    <?php while ( have_posts() ) : the_post(); ?>
