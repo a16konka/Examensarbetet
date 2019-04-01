@@ -7,7 +7,8 @@
 	den högsta kvalitet möjligt.</p>
 		</div> 
 		
-		<a href="<?php echo home_url(); ?>/?page_id=17">Search Page</a>
+		<?php get_search_form(); ?>
+		
 	</section>
 	
 	    <?php while ( have_posts() ) : the_post(); ?>
