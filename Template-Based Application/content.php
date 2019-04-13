@@ -11,21 +11,54 @@
 		
 	</section>
 	
-	    <?php while ( have_posts() ) : the_post(); ?>
-      <article class="<?php post_class(); ?>" id="post-<?php the_ID(); ?>">
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-        <?php if ( !is_page() ):?>
-          <section class="entry-meta">
-          <p>Posted on <?php the_date();?> by <?php the_author();?></p>
-          </section>
-        <?php endif; ?>
-        <section class="entry-content">
-          <?php the_content(); ?>
-        </section>
-        <section class="entry-meta"><?php if ( count( get_the_category() ) ) : ?>
-          <span class="category-links">
-            Posted under: <?php echo get_the_category_list( ', ' ); ?>
-          </span>
-        <?php endif; ?></section>
-      </article>
-    <?php endwhile; ?>
+    <!--
+    <?php while ( have_posts() ) : the_post(); ?>
+  		<div id="post-<?php the_ID(); ?>" class="blog-card">
+		<div class="meta">
+		  <div class="photo" style="background-image: url(https://i.pinimg.com/originals/89/6b/33/896b330a7e3db100386dad57d918725a.jpg)"></div>
+		</div>
+		<div class="description">
+		  <h1><?php the_title(); ?></h1>
+		  <h2>by <?php the_author();?></h2>
+		  <p><?php the_content(); ?></p>
+		  <p class="read-more">
+		    <a href="<?php echo esc_url( get_permalink() ); ?>">Read More</a>
+		  </p>
+		</div>
+		</div>
+  	<?php endwhile; ?>
+-->
+
+			<?php if ( have_posts() ) : ?>
+
+			<?php 	while ( have_posts() ) : the_post(); ?>
+
+
+					 
+					 <div id="post-<?php the_ID(); ?>" class="blog-card">
+		<div class="meta">
+		  <div class="photo" style="background-image: url(https://i.pinimg.com/originals/89/6b/33/896b330a7e3db100386dad57d918725a.jpg)"></div>
+		</div>
+		<div class="description">
+		  <h1><?php the_title(); ?></h1>
+		  <h2>by <?php the_author();?></h2>
+		  <p><?php the_content(); ?></p>
+		  <p class="read-more">
+		    <a href="<?php echo esc_url( get_permalink() ); ?>">Read More</a>
+		  </p>
+		</div>
+		</div>
+
+				<?php endwhile; ?>
+
+				<?php the_posts_pagination( array(
+					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+				) );
+				?>
+			<?php else : ?>
+
+				get_template_part( 'template-parts/post/content', 'none' );
+
+			<?php endif; ?>

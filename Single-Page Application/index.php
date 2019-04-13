@@ -11,38 +11,33 @@
 function querify(query) {
     return query.split(" ").join("+") // replaces spaces with +s for url
 }
-function updateIframe(query) {
-    query = querify(query);
-    var i = document.getElementById("searchResults");
-    var searchEngine = "http://wordpress:8888/?s=" 
-    var yourSiteToSearch= "site:example.com+"
-    i.src = searchEngine + query;
-}
-</script>
 
-<script>
-	
-	var href = 'http://wordpress:8888/?s=';
+function update(query){
+	var searchEngine = 'http://wordpress:8888/?s=';
+	query = querify(query);
+	var href = searchEngine + query;
 	
 	$.ajax({
-    url:href,
+    	url:href,
         type:'GET',
         success: results,
         error: errormsg
-});
+	});
 
-function results(data){
-   $("#content").load(href + " #primary");
+	function results(data){
+	   $("#content").html(data);
+	}
+	
+	function errormsg(jqXHR,textStatus,errorThrown){
+	    console.log(jqXHR);
+	    alert("AJAX Error: " + errorThrown);     
+	}
 }
 
-function errormsg(jqXHR,textStatus,errorThrown){
-    console.log(jqXHR);
-    alert("AJAX Error: " + errorThrown);     
-}
 </script>
 </head>
-<body>
-   <input oninput="updateIframe(this.value)" type="text">
+<body onload="update('')">
+   <input oninput="update(this.value)" type="text">
    <div id="content">Test</div>
 </body>
 </html>
