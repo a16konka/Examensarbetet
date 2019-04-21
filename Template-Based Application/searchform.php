@@ -7,6 +7,7 @@
 	</div>
 </form>
 
+<!--
 <form role="search" method="get" id="searchform" action="http://wordpress:8888/">
 	<div>
 		<label for="s">Search for:</label>
@@ -17,3 +18,4 @@
 		<input type="submit" id="searchsubmit" value="Search" />
 	</div>
 </form>
+-->

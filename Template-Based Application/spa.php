@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php
+/**
+ * Template Name: Single-Page Application
+ */
+?>
 
-<!-- jQuery -->	
-<script src="jquery/jquery-1.8.2.min.js"></script>
-<script src="jquery/jquery-1.10.2.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="style.css">
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script>
 var timerStart = Date.now();
 
@@ -40,11 +37,13 @@ function callAjaxfunc(callback) {
 	}
        
 }
-
 </script>
-</head>
 <body>
-   <input oninput="update(this.value)" type="text">
-   <div id="content"></div>
+	<?php get_header(); ?>
+    <div id="content"></div>
+    <?php get_footer(); ?>
 </body>
-</html>
+
+
+
+
