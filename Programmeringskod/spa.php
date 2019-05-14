@@ -130,7 +130,7 @@ function callAjaxfunc(callback) {
 	<?php get_header(); ?>
 	<?php get_template_part('searchform_spa'); ?>
 	<div id="content">Search results will appear here</div>
-    <?php get_footer(); ?>
+	<?php get_footer(); ?>
 </body>
 
 
