@@ -25,3 +25,14 @@ header("Access-Control-Allow-Origin: *");
         </nav>
       </header>
     </div>
+    
+    <section id="welcome">				
+		<div>					
+			<span class="title">Welcome to eBook Catalog</span>
+			<p class="textPara">
+	Choose among free epub and Kindle eBooks, download them or read them online. <br>
+	You will find the world's great literature here, with focus on older works <br>
+	for which U.S. copyright has expired. <br> 
+			</p>
+		</div> 
+	</section>

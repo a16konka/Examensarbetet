@@ -30,9 +30,10 @@ window.onload = function someFunc() {
 	
 			localStorage.setItem("TIMES_RUN", TIMES_RUN + 1);
 			console.log(`Times run: ${TIMES_RUN + 1} of ${MEASUREMENTS}`);
-			document.location.reload();
+			//document.location.reload();
 			
-		} else { // Download dataset
+		} /*
+else { // Download dataset
 			let dataset = JSON.parse(localStorage.getItem("dataset"));
 			let csv_row = convertJSONtoCsvRow(dataset);
 			let csv_columns = convertJSONtoCsvColumns(dataset);
@@ -41,6 +42,7 @@ window.onload = function someFunc() {
 			download("dataset_csv_row.csv", csv_row);
 			download("dataset_csv_columns.csv", csv_columns);
 		}
+*/
 		
 		/**
 		 * Converts a single level JSON string to a single row CSV string
@@ -126,7 +128,8 @@ function callAjaxfunc(callback) {
 </script>
 <body>
 	<?php get_header(); ?>
-    <div id="content"></div>
+	<?php get_template_part('searchform_spa'); ?>
+	<div id="content">Search results will appear here</div>
     <?php get_footer(); ?>
 </body>
 
