@@ -1,36 +1,43 @@
 <?php
 /**
- * Twenty Seventeen functions and definitions
+ * Single-Page Application functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
  * @since 1.0
- */
+ */ 
+ ?>
+ 
+ <script type="text/javascript">
+	 var TIMES_RUN = (localStorage.getItem("TIMES_RUN")) ?
+			parseInt(localStorage.getItem("TIMES_RUN")) : 0;
+ </script>
 
+<?php
 // add the ajax fetch js
 add_action( 'wp_footer', 'ajax_fetch' );
 function ajax_fetch() {
 ?>
 <script type="text/javascript">
-var start;
-var end;
-
-function fetch(){
-
-    jQuery.ajax({
-        url: '<?php echo admin_url('admin-ajax.php'); ?>',
-        type: 'post',
-        data: { action: 'data_fetch', keyword: jQuery('#keyword').val() },
-        success: function(data) {
-            jQuery('#content').html( data );
-        }
-    });
-    console.log('Start');
-    start = new Date().getTime();
-
-}
+	var start;
+	var end;
+	let dataset;
+	
+	function fetch(){
+	
+	    jQuery.ajax({
+	        url: '<?php echo admin_url('admin-ajax.php'); ?>',
+	        type: 'post',
+	        data: { action: 'data_fetch', keyword: jQuery('#keyword').val() },
+	        success: function(data) {
+	            jQuery('#content').html( data );
+	        }
+	    });
+	    console.log('Start');
+	    start = new Date().getTime();
+	
+	}
 </script>
 
 <?php
@@ -57,8 +64,21 @@ function data_fetch(){
     endif;
     ?>
     <script>console.log( 'Slut' );
+		
+/*
 	    end = new Date().getTime();
-	    console.log('milliseconds passed', end - start);
+	    var ajaxTime = end-start;
+	    console.log('milliseconds passed', ajaxTime);
+	    var numItems = $('.blog-card').length;
+	    var word = $('#keyword').val();
+	    
+	    dataset = (localStorage.getItem("dataset")) ?
+				JSON.parse(localStorage.getItem("dataset")) : {};
+	            dataset[TIMES_RUN + 1] = ajaxTime + "," + word + "," + numItems;
+			localStorage.setItem("dataset", JSON.stringify(dataset));
+		
+		localStorage.setItem("TIMES_RUN", TIMES_RUN + 1);
+*/
     </script>
     <?php
     die();

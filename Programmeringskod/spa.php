@@ -11,7 +11,7 @@ console.log("Web loading time: ", performance.now());
 window.onload = function someFunc() {
 	
 	/** How many measurements to run */
-	const MEASUREMENTS = 100;
+	const MEASUREMENTS = 1000;
 	/** How many measurments has been done */
 	const TIMES_RUN = (localStorage.getItem("TIMES_RUN")) ?
 		parseInt(localStorage.getItem("TIMES_RUN")) : 0;
